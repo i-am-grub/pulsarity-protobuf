@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package pulsarity.databsase;
+
+message Attribute {
+    string name = 1;
+}
+
+message Pilot {
+    int32 id = 1;
+    string display_callsign = 2;
+    string display_name = 3;
+    repeated Attribute attributes = 4;
+}
+
+message Pilots {
+    repeated Pilot pilots = 1;
+}
+
+message RaceEvent {
+    int32 id = 1;
+    string name = 2;
+    repeated Attribute attributes = 3;
+}
+
+message RaceEvents {
+    repeated RaceEvent events = 1;
+}
+
+message RaceClass {
+    int32 id = 1;
+    string name = 2;
+    repeated Attribute attributes = 3;
+}
+
+message RaceClasses {
+    repeated RaceClass raceclasses = 1;
+}
+
+message Round {
+    int32 id = 1;
+    int32 round_num = 2;
+    repeated Attribute attributes = 3;
+}
+
+message Rounds {
+    repeated Round rounds = 1;
+}
+
+message Heat {
+    int32 id = 1;
+    int32 heat_num = 2;
+    repeated Attribute attributes = 3;
+}
+
+message Heats {
+    repeated Heat heats = 1;
+}

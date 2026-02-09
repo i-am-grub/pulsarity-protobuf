@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 package pulsarity.databsase;
 
 message Attribute {
@@ -20,7 +22,8 @@ message Pilots {
 message RaceEvent {
     int32 id = 1;
     string name = 2;
-    repeated Attribute attributes = 3;
+    google.protobuf.Timestamp date = 3;
+    repeated Attribute attributes = 4;
 }
 
 message RaceEvents {

@@ -6,3 +6,9 @@ integrates with it over its various communication interfaces
 (http, websocket, etc). The definitation files can be used to 
 generate the implementation files for any programming language 
 that supports protobufs.
+
+## Compling Python Protocol Buffers
+
+Follow the documentation for compiling Python modules from
+the protocol buffer definition files found
+[here](https://protobuf.dev/getting-started/pythontutorial/#compiling-protocol-buffers)

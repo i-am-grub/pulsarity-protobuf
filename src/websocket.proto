@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package pulsarity.websocket;
+package pulsarity.ws;
 
 enum EventID {
     EVENT_UNSPECIFIED = 0x00;

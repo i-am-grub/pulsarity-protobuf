@@ -63,7 +63,7 @@ message UIButtonField {
 
 // Message modeling the stored UI markdown fields
 message UIButtonFields {
-    repeated UIMarkdownField fields = 1;
+    repeated UIButtonField fields = 1;
 } 
 
 // Message modeling the different types of UI field values

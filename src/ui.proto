@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package pulsarity.ui;
+
+// Enum defining the different types of user interface
+// elements
+enum UIElementType {
+    ELEMENT_TYPE_UNKNOWN = 0x00;
+    ELEMENT_TYPE_ETREE = 0x01;
+    ELEMENT_TYPE_MARKDOWN = 0x02;
+    ELEMENT_TYPE_BUTTON = 0x03;
+    ELEMENT_TYPE_FIELD = 0x04;
+}
+
+// A message modeling a child element of an
+// element tree
+message UIElementTreeEntry {
+    UIElementType type = 1;
+    int32 element_id = 2;
+}
+
+// A message modeling an element tree's children
+// elements
+message UIElementTree {
+    int32 element_id = 1;
+    repeated UIElementTreeEntry elements = 2;
+}
+
+// A message modeling all stored element trees
+message UIElementTrees {
+    repeated UIElementTree etrees = 1;
+}
+
+// A message modeling an array of element tree ids
+message MappedElementTrees {
+    repeated int32 element_ids = 1;
+}
+
+// A message modeling the mapping between a key and
+// and an array of element tree ids
+message UIETreeMapping {
+    map<string, MappedElementTrees> mapping = 1;
+}
+
+// Message modeling the data required for a markdown field
+message UIMarkdownField {
+    int32 element_id = 1;
+    string text = 2;
+} 
+
+// Message modeling the stored UI markdown fields
+message UIMarkdownFields {
+    repeated UIMarkdownField fields = 1;
+} 
+
+// Message modeling the data required for a markdown field
+message UIButtonField {
+    int32 element_id = 1;
+    string text = 2;
+} 
+
+// Message modeling the stored UI markdown fields
+message UIButtonFields {
+    repeated UIMarkdownField fields = 1;
+} 
+
+// Message modeling the different types of UI field values
+enum FieldType {
+    FIELD_TYPE_UNKNOWN = 0x00;
+    FIELD_TYPE_TEXT =  0x01;
+    FIELD_TYPE_BASIC_INT = 0x02;
+    FIELD_TYPE_NUMBER = 0x03;
+    FIELD_TYPE_RANGE = 0x04;
+    FIELD_TYPE_SELECT = 0x05;
+    FIELD_TYPE_CHECKBOX = 0x06;
+    FIELD_TYPE_PASSWORD = 0x07;
+    FIELD_TYPE_DATE = 0x08;
+    FIELD_TYPE_TIME = 0x09;
+    FIELD_TYPE_DATETIME = 0x10;
+    FIELD_TYPE_EMAIL = 0x11;
+    FIELD_TYPE_TEL = 0x12;
+    FIELD_TYPE_URL = 0x13;
+}
+
+// Message to contain all the parameters needed for a range field
+message RangeData {
+    float min = 1;
+    float max = 2;
+    float value = 3;
+    optional float scale = 4;
+}
+
+// Message modeling the user interface field data
+message UIValueField {
+    int32 element_id = 1;
+    FieldType field_type = 2;
+
+    oneof value {
+        string text = 3;
+        bool boolean = 4;
+        int32 integar = 5;
+        float decimal = 6;
+        google.protobuf.Timestamp datetime = 7;
+        RangeData range = 8;
+    }
+}
+
+// Message modeling the stored UI value fields
+message UIValueFields {
+    repeated UIValueField fields = 1;
+}
+

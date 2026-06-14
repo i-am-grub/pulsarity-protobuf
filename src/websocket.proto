@@ -11,6 +11,7 @@ enum EventID {
     EVENT_STARTUP = 0x03;
     EVENT_SHUTDOWN = 0x04;
     EVENT_RESTART = 0x05;
+    EVENT_UI_UPDATE = 0x06;
 
     // Race Sequence
     EVENT_RACE_SCHEDULE = 0x20;

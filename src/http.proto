@@ -2,8 +2,16 @@ syntax = "proto3";
 
 package pulsarity.http;
 
-message StatusResponse {
+message UserInfo {
+    string auth_id = 1;
+    string username = 2;
+    string dispay_name = 3;
+    repeated string permissions = 4;
+}
+
+message AuthenticatedResponse {
     bool status = 1;
+    UserInfo userinfo = 2;
 }
 
 message LoginRequest {
@@ -13,9 +21,15 @@ message LoginRequest {
 
 message LoginResponse {
     bool password_reset_required = 1;
+    UserInfo userinfo = 2;
 }
 
 message ResetPasswordRequest {
     string old_password = 1;
     string new_password = 2;
+}
+
+message ServerData {
+    string version = 1;
+    string server_name = 2;
 }

@@ -3,10 +3,11 @@ syntax = "proto3";
 package pulsarity.http;
 
 message UserInfo {
-    string auth_id = 1;
-    string username = 2;
-    string dispay_name = 3;
-    repeated string permissions = 4;
+    bool authenticated = 1;
+    string auth_id = 2;
+    string username = 3;
+    string dispay_name = 4;
+    repeated string permissions = 5;
 }
 
 message AuthenticatedResponse {

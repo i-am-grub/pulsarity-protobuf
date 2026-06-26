@@ -33,4 +33,11 @@ message ResetPasswordRequest {
 message ServerData {
     string version = 1;
     string server_name = 2;
+    string language_version = 3;
+    repeated string language_packs = 4;
+}
+
+message LocalizationData {
+    map<string, string> messages = 1;
+    map<string, string> pluralization = 2;
 }

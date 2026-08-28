@@ -9,7 +9,7 @@ message Attribute {
 }
 
 message Pilot {
-    int32 id = 1;
+    uint32 id = 1;
     string display_callsign = 2;
     string display_name = 3;
     repeated Attribute attributes = 4;
@@ -20,7 +20,7 @@ message Pilots {
 }
 
 message RaceEvent {
-    int32 id = 1;
+    uint32 id = 1;
     string name = 2;
     google.protobuf.Timestamp date = 3;
     repeated Attribute attributes = 4;
@@ -31,7 +31,7 @@ message RaceEvents {
 }
 
 message RaceClass {
-    int32 id = 1;
+    uint32 id = 1;
     string name = 2;
     repeated Attribute attributes = 3;
 }
@@ -41,8 +41,8 @@ message RaceClasses {
 }
 
 message Round {
-    int32 id = 1;
-    int32 round_num = 2;
+    uint32 id = 1;
+    uint32 round_num = 2;
     repeated Attribute attributes = 3;
 }
 
@@ -51,8 +51,8 @@ message Rounds {
 }
 
 message Heat {
-    int32 id = 1;
-    int32 heat_num = 2;
+    uint32 id = 1;
+    uint32 heat_num = 2;
     repeated Attribute attributes = 3;
 }
 

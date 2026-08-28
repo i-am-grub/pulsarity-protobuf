@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "ui.proto";
+
 package pulsarity.ws;
 
 enum EventID {
@@ -30,26 +32,29 @@ enum EventID {
 
 // Payload for EVENT_PILOT_ADD
 message PilotAddData {
-    int32 pilot_id = 1;
+    uint32 pilot_id = 1;
 }
 
 // Payload for EVENT_PILOT_ALTER
 message PilotAlterData {
-    int32 pilot_id = 1;
+    uint32 pilot_id = 1;
 }
 
 // Payload for EVENT_PILOT_DELETE
 message PilotDeleteData {
-    int32 pilot_id = 1;
+    uint32 pilot_id = 1;
 }
 
 message WebsocketEvent {
     bytes uuid = 1; // UUID encoded as bytes
     EventID event_id = 2;
     
-    // Reserve up to 15 for the
-    // most common events
     oneof event_data {
+        // Reserve 3 for race value updates?
+        pulsarity.ui.UIElementUpdate ui_element_update = 4;
+
+        // Reserve up to 15 for the
+        // most common events
         PilotAddData pilot_add = 16;
         PilotAlterData pilot_alter = 17;
         PilotDeleteData pilot_delete = 18;
